@@ -22,27 +22,32 @@ form.addEventListener('click', stopDefAction);
 
 const button = document.querySelector('.js-btn');
 let number = document.querySelector('.js-number');
+
 function showClues() {
   const clue = document.querySelector('.js-clue');
-  const tries = document.querySelector('.js-tries');
-  let attemps = 0;
+
   if (number.value > result) {
-    attemps = attemps + 1;
-    return (clue.innerHTML = 'Demasiado alto');
+    clue.innerHTML = 'Demasiado alto';
   } else if (number.value < result) {
-    attemps = attemps + 1;
     clue.innerHTML = 'Demasiado bajo';
-  } else if (number.value === result) {
-    attemps = attemps + 1;
+  } else if (parseInt(number.value) === result) {
     clue.innerHTML = 'Has ganado campeona!!!';
   }
-  //   else (number !== result) {
-  //     attemps = attemps + 1;
-  //     clue.innerHTML = ' El número debe estar entre 1 y 100.';
-  //     if (attemps > 0) {
-  //               tries.innerHTML = `Número de intentos = ${attemps}`);
-  //       }
-  //   }
+   else (number.value > 100 || number.value < 1 ) {
+      clue.innerHTML = 'El número debe estar entre 1 y 100.';
+  }
 }
-console.log(number.value);
-button.addEventListener('click', showClues());
+
+// NÚMERO DE INTENTOS
+function showTries() {
+  const tries = document.querySelector('.js-tries');
+  let attemps = 0;
+
+  if (attemps > 0) {
+    attemps = attemps + 1;
+    tries.innerHTML = `Número de intentos = ${attemps}`;
+  }
+}
+
+button.addEventListener('click', showClues);
+// button.addEventListener('click', showTries);
