@@ -32,9 +32,8 @@ function showClues() {
     clue.innerHTML = 'Demasiado bajo';
   } else if (parseInt(number.value) === result) {
     clue.innerHTML = 'Has ganado campeona!!!';
-  }
-   else (number.value > 100 || number.value < 1 ) {
-      clue.innerHTML = 'El número debe estar entre 1 y 100.';
+  } else if (number.value > 100 || number.value < 1) {
+    clue.innerHTML = 'El número debe estar entre 1 y 100.';
   }
 }
 
