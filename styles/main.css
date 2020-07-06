@@ -3,7 +3,7 @@
   color: inherit;
 }
 :root {
-  --primary-font: "Montserrat", sans-serif;
+  --primary-font: 'Montserrat', sans-serif;
   --regular-weight: 400;
   --bold-weight: 700;
   --primary-color: #cc212a;
@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  margin: 0;
+  margin: 50px;
 }
 
 .wrapper {
@@ -45,49 +45,4 @@ h1 {
 .main-title span {
   display: block;
   text-align: center;
-}
-
-/* FOOTER */
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid var(--primary-color);
-  text-align: center;
-}
-
-.footer-logo {
-  background-color: var(--primary-color);
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  color: var(--light-color);
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.footer .wrapper {
-  padding-top: 40px;
-}
-
-@media all and (min-width: 768px) {
-  .footer-logo {
-    position: static;
-    transform: none;
-  }
-
-  .footer .wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-  }
-}
-
-@media all and (min-width: 1200px) {
 }

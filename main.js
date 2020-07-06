@@ -7,28 +7,24 @@ function getRandomNumber(max) {
 }
 
 let result = getRandomNumber(100);
-document.addEventListener('DOMContentLoaded', getRandomNumber);
-console.log(result);
-
-// PREVENT DEFAULT FORMULARIO
-
-const form = document.querySelector('form');
-function stopDefAction(event) {
-  event.preventDefault();
-}
-form.addEventListener('click', stopDefAction);
-
-// COMPARAR NÚMEROS CON EL ALEATORIO
+console.log('Mi número aleatorio es ', result);
 
 const button = document.querySelector('.js-btn');
 let number = document.querySelector('.js-number');
-let numberValue = parseInt(number.value);
+let clue = document.querySelector('.js-clue');
+const form = document.querySelector('form');
 
+function handleSubmitBtn(event) {
+  event.preventDefault();
+  showClues();
+  showTries();
+}
+
+// MOSTRAR PISTAS
 function showClues() {
-  const clue = document.querySelector('.js-clue');
-  // ESTO PARA LA EVALUACIÓN TENDRÁ QUE ESTAR EN UNA MISMA FUNCIÓN
+  let numberValue = parseInt(number.value);
 
-  if (numberValue >= 100 || number.value <= 1) {
+  if (numberValue >= 1 && number.value <= 100) {
     if (numberValue > result) {
       clue.innerHTML = 'Demasiado alto';
     } else if (numberValue < result) {
@@ -41,13 +37,19 @@ function showClues() {
   }
 }
 
-const tries = document.querySelector('.attempts');
-let attempts = 0;
-
 // NÚMERO DE INTENTOS
+const tries = document.querySelector('.attempts');
+console.log(tries);
+let attempts = 0;
 function showTries() {
-  attempts = attempts + 1;
-  tries.innerHTML = `Número de intentos = ${attemps}`;
+  attempts += 1;
+  tries.innerHTML = attempts;
 }
 
-button.addEventListener('click', showClues);
+button.addEventListener('click', handleSubmitBtn);
+
+// COSAS A AÑADIR
+// Añadir nuevos comentarios cuando el número es mayor que 100 o menor que 0.
+// Gestionar cuando el usuario pulsa el botón y el input está vacío.
+// Hacer que el input funcione cuando se pulsa la tecla intro.
+// Añade un botón de reset que limpia la entrada, el contador, genera un nuevo número aleatorio para jugar de nuevo!
